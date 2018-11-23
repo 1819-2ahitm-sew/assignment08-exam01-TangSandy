@@ -1,30 +1,30 @@
 package at.htl.exam01.document;
 
 public class Email extends Document {
-    private String name = "Susi";
-    private String anliegen = "Bewerbung";
-    private String firma = "CoolCompany";
+    private String subject = "";
+    private String to ="";
 
-
-    public  Email(){
-        super();
+    public Email(String author, String subject, String to) {
+        super(author);
+        this.subject = subject;
+        this.to = to;
     }
 
-    public void setEmail(){
-        this.name = name;
-        this.anliegen = anliegen;
-        this.firma = firma;
+    public String getSubject() {
+        return subject;
     }
 
-    public String getName(){
-        return name;
+    public String getTo() {
+        return to;
     }
 
-    public String getAnliegen(){
-        return anliegen;
-    }
+    @Override
+    public String toString() {
+        String output = "";
 
-    public String getFirma(){
-        return firma;
+        output = "'" + subject + "'" + " von '" + getAuthor() + "' an '" + to +"'";
+
+
+        return output;
     }
 }
